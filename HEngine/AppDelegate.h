@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+
 @class ViewController;
+@class HEngine;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) ViewController *viewController;
+
+@property (strong, nonatomic) HEngine *hEngine;
 
 @end

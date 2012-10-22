@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -29,6 +30,11 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+- (IBAction)button:(id)sender {
+    [ApplicationDelegate.hEngine requestPublicFeedOnCompletion:^(NSArray *responseArray) {
+        NSLog(@"%@",responseArray);}
+                                        onError:^(NSError* error){}];
 }
 
 @end

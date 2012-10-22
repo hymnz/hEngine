@@ -9,14 +9,23 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "HEngine.h"
+
+@interface AppDelegate()
+- (void)setupNetworkEngines;
+
+@end
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize hEngine = _hEngine;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self setupNetworkEngines];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
@@ -50,6 +59,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Private Methods
+
+- (void)setupNetworkEngines
+{
+
+    self.hEngine = [[HEngine alloc] initWithHostName:@"www.commonroom.in.th"
+                                  customHeaderFields:nil];
+
+    
 }
 
 @end
